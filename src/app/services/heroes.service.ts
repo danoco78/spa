@@ -76,4 +76,20 @@ export class HeroesService {
       return this.dataHeroes[idx];
     }
 
+    buscarHeroes( termino: string ){
+      
+      // creamos un arreglo de tipo Heroe
+      let heroesArr: Heroe[] = [];
+      
+      // pasamos el termino a miniscula para mejorar el resultado de busqueda.
+      termino = termino.toLowerCase();
+
+      for ( let registro of this.dataHeroes ){
+
+        let nombreHeroe = registro.nombre.toLowerCase();
+
+      }
+
+    }
+
 }
