@@ -1,0 +1,37 @@
+<h1>Resultado: <small>{{termino}}</small> </h1>
+<hr>
+
+
+<div class="row" *ngIf="heroes.length == 0">
+    <div class="col-md-12">
+        <div class="alert alert-info" role="alert">
+            No existen resultados pata el término: {{termino}}
+        </div>
+    </div>
+</div>
+
+
+<div class="card-columns">
+    <div class="card" *ngFor="let varHeroe of heroes; let i = index">
+        <!--
+            La fora anterior era colocar la variable entre comillas y doble corchete 
+            <img class="card-img-top" src="{{ varHeroe.img }}" alt="Card image cap">
+            La nueva es solocar el source entre corchetes [src] 
+        -->
+        <img class="card-img-top" [src]="varHeroe.img" [alt]="varHeroe.nombre">
+        <div class="card-body">
+            <h5 class="card-title">{{ varHeroe.nombre }}</h5>
+            <p class="card-text">{{ varHeroe.bio }}</p>
+            <p class="card-text"><small class="text-muted">{{ varHeroe.aparicion }}</small></p>
+
+            <!-- Forma de llamar a la url de heroe enviando el parametro a través de codigo -->
+            <button (click)="verHeroe(i)" type="button" class="btn btn-outline-primary btn-block">
+                Ver más...
+            </button>
+
+            <!-- Forma de configurar la ruta con parametros para cargar un heroe a través del uso de un link 
+            <a [routerLink]="['/heroe',i]" class="btn btn-outline-primary">Ver más link...</a> -->
+
+        </div>
+    </div>
+</div>

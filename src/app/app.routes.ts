@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { HeroeComponent } from './components/heroe/heroe.component';
+import { ResultsComponent } from './components/results/results.component';
 // import { PageNotFoundComponent } from './';
 
 const APP_ROUTES: Routes = [
@@ -13,6 +14,7 @@ const APP_ROUTES: Routes = [
     { path: 'heroes', component: HeroesComponent },
     // la siguiente ruta carga usando un parametro que vamos allamar id
     { path: 'heroe/:id', component: HeroeComponent },
+    { path: 'results/:termino', component: ResultsComponent },
     // { path: '**', component: PageNotFoundComponent },
 
     // { path: 'path/:routeParam', component: MyComponent },

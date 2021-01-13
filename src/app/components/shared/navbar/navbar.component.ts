@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 // import { ConsoleReporter } from 'jasmine';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor( private router: Router ) { }
 
   ngOnInit(): void {
   }
@@ -15,6 +16,7 @@ export class NavbarComponent implements OnInit {
   // tslint:disable-next-line: typedef
   buscarHeroe( termino: string){
     console.log(termino);
+    this.router.navigate( ['/results', termino] );
   }
 
 }
