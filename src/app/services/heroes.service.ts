@@ -65,7 +65,7 @@ export class HeroesService {
       ];
 
     constructor() {
-        console.log('Servicio listo para usarse');
+        //console.log('Servicio listo para usarse');
     }
 
     getHeroes(): Heroe[] {
@@ -76,11 +76,11 @@ export class HeroesService {
       return this.dataHeroes[idx];
     }
 
-    buscarHeroes( termino: string ){
-      
+    buscarHeroes( termino: string ): Heroe[] {
+
       // creamos un arreglo de tipo Heroe
       let heroesArr: Heroe[] = [];
-      
+
       // pasamos el termino a miniscula para mejorar el resultado de busqueda.
       termino = termino.toLowerCase();
 
@@ -88,7 +88,14 @@ export class HeroesService {
 
         let nombreHeroe = registro.nombre.toLowerCase();
 
+        if ( nombreHeroe.indexOf( termino ) >= 0){
+          heroesArr.push(registro);
+        }
+
       }
+
+      return heroesArr;
+      console.log(heroesArr);
 
     }
 
