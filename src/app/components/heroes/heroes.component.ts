@@ -25,10 +25,9 @@ export class HeroesComponent implements OnInit {
     // console.log( this.heroes )
   }
 
-  // tslint:disable-next-line: typedef
-  verHeroe( idx: number) {
-    // console.log(idx);
-    this.router.navigate( ['/heroe', idx] );
-  }
+  // verHeroe( idx: number) {
+  //   // console.log(idx);
+  //   this.router.navigate( ['/heroe', idx] );
+  // }
 
 }

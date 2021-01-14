@@ -8,7 +8,7 @@
         el [heroe] que esta abjo, apunta al atributo heroe que se creo con el decorador @Input en heroe-terjeta.component
          esta es la forma de pasarle el argumento desde este componente al otro.
     -->
-    <app-heroe-tarjeta [heroe]="varHeroe" [index]="i" *ngFor="let varHeroe of heroes; let i = index"></app-heroe-tarjeta>
+    <app-heroe-tarjeta [heroe]="varHeroe" [index]="i" [nombreHeroe]="varHeroe.nombre" *ngFor="let varHeroe of heroes; let i = index"></app-heroe-tarjeta>
 
 
 

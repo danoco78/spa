@@ -1,4 +1,4 @@
-<div class="card">
+<div *ngIf="consultaIndividual == 0" class="card">
     <!--
         La fora anterior era colocar la variable entre comillas y doble corchete 
         <img class="card-img-top" src="{{ varHeroe.img }}" alt="Card image cap">
@@ -11,7 +11,7 @@
         <p class="card-text"><small class="text-muted">{{ heroe.aparicion }}</small></p>
 
         <!-- Forma de llamar a la url de heroe enviando el parametro a través de codigo -->
-        <button (click)="verHeroe()" type="button" class="btn btn-outline-primary btn-block">
+        <button *ngIf="consultaIndividual == 0" (click)="verHeroe()" type="button" class="btn btn-outline-primary btn-block">
             Ver más...
         </button>
 
@@ -19,4 +19,33 @@
         <a [routerLink]="['/heroe',i]" class="btn btn-outline-primary">Ver más link...</a> -->
 
     </div>
+</div>
+
+
+<div *ngIf="consultaIndividual == 1" class="row animated fadeIn fast">
+    <h1 class="animated fadeIn">{{ heroe.nombre | uppercase }} <small>{{ heroe.aparicion | date:'y' }}</small></h1>
+    <hr>
+
+    <div class="row animated fadeIn fast">
+
+        <div class="col-md-4">
+            <img [src]="heroe.img" [alt]="heroe.nombre" class="img-fluid">
+            <br><br>
+            <a [routerLink]="['/heroes']" class="btn btn-outline-danger btn-block">Regresar</a>
+        </div>
+
+        <div class="col-md-8">
+
+            <h3>{{ heroe.nombre }}</h3>
+            <br>
+            <p>
+                {{ heroe.bio }}
+            </p>
+            <div>
+                <img *ngIf="heroe.casa == 'Marvel'" class="img_logo" src="assets/img/marvel.jpg" alt="heroe.casa">
+                <img *ngIf="heroe.casa == 'DC'" class="img_logo" src="assets/img/DC.png" alt="heroe.casa">
+            </div>
+        </div>
+    </div>
+
 </div>
