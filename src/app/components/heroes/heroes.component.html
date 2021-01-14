@@ -1,27 +1,15 @@
 <h1>Héroes <small>Marvel y DC</small></h1>
 <hr>
 
+
 <div class="card-columns">
-    <div class="card" *ngFor="let varHeroe of heroes; let i = index">
-        <!--
-            La fora anterior era colocar la variable entre comillas y doble corchete 
-            <img class="card-img-top" src="{{ varHeroe.img }}" alt="Card image cap">
-            La nueva es solocar el source entre corchetes [src] 
-        -->
-        <img class="card-img-top" [src]="varHeroe.img" [alt]="varHeroe.nombre">
-        <div class="card-body">
-            <h5 class="card-title">{{ varHeroe.nombre }}</h5>
-            <p class="card-text">{{ varHeroe.bio }}</p>
-            <p class="card-text"><small class="text-muted">{{ varHeroe.aparicion }}</small></p>
+    <!--*ngFor="let varHeroe of heroes; let i = index"-->
+    <!-- 
+        el [heroe] que esta abjo, apunta al atributo heroe que se creo con el decorador @Input en heroe-terjeta.component
+         esta es la forma de pasarle el argumento desde este componente al otro.
+    -->
+    <app-heroe-tarjeta [heroe]="varHeroe" [index]="i" *ngFor="let varHeroe of heroes; let i = index"></app-heroe-tarjeta>
 
-            <!-- Forma de llamar a la url de heroe enviando el parametro a través de codigo -->
-            <button (click)="verHeroe(i)" type="button" class="btn btn-outline-primary btn-block">
-                Ver más...
-            </button>
 
-            <!-- Forma de configurar la ruta con parametros para cargar un heroe a través del uso de un link 
-            <a [routerLink]="['/heroe',i]" class="btn btn-outline-primary">Ver más link...</a> -->
 
-        </div>
-    </div>
-</div>"
+</div>
